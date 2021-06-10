@@ -5,14 +5,23 @@ public class ProductManager {
 
     private List<product> listOfProduct;
 
-    public void productManager(){
+    public ProductManager() {
         this.listOfProduct = new ArrayList<>();
     }
 
     public  int addProduct(product p){
         this.listOfProduct.add(p);
-        return this.listOfProduct.size();
+        return count();
     }
 
+    public int count(){
+        return listOfProduct.size();
+    }
 
+    public product getProduct(int index){
+        if (index < 0 || index >= count()){
+            return  null;
+        }
+        return this.listOfProduct.get(index);
+    }
 }
